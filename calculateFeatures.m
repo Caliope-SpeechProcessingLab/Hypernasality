@@ -31,7 +31,7 @@ audioPath = fullfile(pwd,'audio');
 
 
 % Generate a struct with patients audios
-patientName = 'fem31017';
+patientName = 'fem39000';
 patientStc = createNewPatient(patientName);
 
 
