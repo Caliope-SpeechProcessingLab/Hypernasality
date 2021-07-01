@@ -32,25 +32,19 @@ mfcc_values = mean(coeffs,1);
 
 
 % Formants frequency and bandwidth 
-[formants, bwFormants] = calculateFormantes(audio,fs);
+[formants, bwFormants] = calculateFormants(audio,fs);
 distFromt = abs([(formants(1)-formants(2)) (formants(1)-formants(3)) (formants(2)-formants(3))]);
-    
-
-% Fundamental frequency and armonics
-f0= mean(pitch(audio,fs,'WindowLength',round(fs*0.025),'OverlapLength',round(fs*0.015)));
-armonics = [f0 2*f0 3*f0];
 
     
 % Features calculated
 features = [mfcc_values vlhr400 vlhr500 vlhr600 vlhr700 vlhr800 vlhr900...
-    formants bwFormants distFromt armonics];
+    formants bwFormants distFromt];
 
 featuresNames = ["mfcc1","mfcc2","mfcc3","mfcc4","mfcc5","mfcc6","mfcc7",...
     "mfcc8","mfcc9","mfcc10","mfcc11","mfcc12","mfcc13",...
     "vlhr400","vlhr500","vlhr600","vlhr700","vlhr800","vlhr900",...
     "f1","f2","f3","bwf1","bwf2","bwf3",...
-    "f1-f2","f1-f3","f2-f3",...
-    "f0","2*f0","3*f0"];
+    "f1-f2","f1-f3","f2-f3"];
 
 featuresNames = strcat(featuresNames,str);
 
