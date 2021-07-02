@@ -144,8 +144,8 @@ for indexTest = 1:length(testToDo)
             classDataSVMTest = classTest(randTest);
             sNamesTestSVM = sNamesTest(randTest);
             
-            SVMModel = fitcsvm(dataSVMTrain,classDataSVMTrain,'KernelFunction','polynomial',...
-              'PolynomialOrder',2,'ClassNames',[0,1],'Standardize',true);
+            SVMModel = fitcsvm(dataSVMTrain,classDataSVMTrain,'KernelFunction','linear',...
+                'ClassNames',[0,1],'Standardize',true);
             
             [labelClasificador,~] = predict(SVMModel,dataSVMTest);
             confusM = confusionmat(double(classDataSVMTest),labelClasificador);
